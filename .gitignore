@@ -1,0 +1,8 @@
+.DS_Store
+
+# Stufe B — lokaler Vektorindex, nicht versionieren
+index/
+chroma/
+*.sqlite3
+.venv/
+__pycache__/
