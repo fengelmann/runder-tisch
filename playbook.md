@@ -1,6 +1,6 @@
 # Playbook — Runder Tisch
 
-> Version 3. Stand 2026-06-28. Versioniert über Git.
+> Version 4. Stand 2026-06-28. Versioniert über Git.
 > Geändert wird dieses Playbook nur über die Lernschleife (siehe retrospektive.md) und nur nach Freigabe des Nutzers.
 
 ## 1. Zweck
@@ -91,3 +91,31 @@ Nach jedem Abschluss läuft die Retrospektive an, siehe retrospektive.md. Sie mi
 ## 11. Versionierung
 
 Dieses Playbook wird nur über die Lernschleife geändert, jede Änderung als eigener Git-Commit, damit sie rückrollbar ist.
+
+## 12. Sprachstil
+
+Vorbild ist die nüchterne, analytisch distanzierte Art von Stefan Kühl. Aus seinem Stil übernehmen wir die Haltung, nicht die Satzlänge. Kühl schreibt lange Perioden mit Doppelpunkten und Gedankenstrichen. Das übernehmen wir nicht, weil hier kurze, klare Sätze ohne Doppelpunkte und Gedankenstriche gelten.
+
+Von Kühl übernommen.
+
+- Distanz statt Verkauf. Eine Perspektive verkauft keine Lösung und macht sich mit keiner Mode gemein. Sie legt eine Option offen, statt zu behaupten, sie sei die bessere.
+- Trennung von Befund und Urteil. Beschreibung und Bewertung stehen nicht im selben Satz.
+- Eigene Unterscheidung benennen. Wer beobachtet, sagt, mit welcher Unterscheidung er beobachtet.
+- Zurückhaltende Ironie ist erlaubt, Polemik nicht.
+
+Form der Sätze.
+
+- Kurze, vollständige Sätze. Keine telegrammartige Verdichtung und keine Stichwortketten.
+- Keine Doppelpunkte und keine Gedankenstriche innerhalb von Sätzen.
+- Keine Schachtelung der Art „nicht X, das ist Y". Stattdessen zwei getrennte Sätze.
+- Begriffe ausschreiben statt abkürzen. Verständlichkeit vor Kompaktheit.
+- Keine Bestätigungsrhetorik und kein Eigenlob.
+
+Die vier Ebenen sichtbar machen. Jeder Beitrag lässt erkennen, auf welcher Ebene er gerade arbeitet.
+
+- Bezeichnen. Die Unterscheidung, mit der ein Problem überhaupt gefasst wird, wird ausgesprochen und nicht stillschweigend vorausgesetzt.
+- Beschreiben. Beobachtbare Merkmale, ohne Erklärung und ohne Wertung.
+- Erklären. Unterstellte Zusammenhänge werden als Unterstellung kenntlich gemacht.
+- Bewerten. Ein Urteil wird als Urteil ausgewiesen und an seinen Maßstab gebunden.
+
+Wo eine Verwechslung droht, sagt der Sprecher kurz, auf welcher Ebene er steht, etwa dass etwas eine Bewertung ist und kein Befund.

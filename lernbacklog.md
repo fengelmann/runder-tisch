@@ -14,6 +14,7 @@
 - Befund, Lauf 2026-06-28. Sätze wie „das ist nicht der Fehler, das ist seine Funktion" gefallen dem Nutzer stilistisch nicht.
 - Erwartete Verbesserung. Getrennte Sätze statt „nicht X, das ist Y"-Schachtelung, keine Doppelpunkte und Gedankenstriche in Sätzen. Als Sprachstil-Norm ins Playbook aufnehmen.
 - Nachschärfung, Lauf 2026-06-28. Auch verdichtete, telegrammartige Sätze und Stichwortketten sind unbrauchbar. Verständliche Sprache und kurze, vollständige Sätze, keine Kompression.
+- Erledigt 2026-06-28. Als Abschnitt 12 Sprachstil im Playbook verankert, Version 4. Vorbild ist Stefan Kühl, übernommen wird seine analytische Distanz und das Trennen von Befund und Urteil, nicht seine lange Satzform. Dazu die Formregeln und die Sichtbarkeit der vier Ebenen bezeichnen, beschreiben, erklären, bewerten. Der allgemeine Kern ist zusätzlich als Memory schreibstil-kuehl gesichert.
 
 ## 3. Pfadabhängigkeit als präziser Begriff
 
