@@ -1,6 +1,6 @@
 # Playbook — Runder Tisch
 
-> Version 1, Erstfassung. Stand 2026-06-27. Versioniert über Git.
+> Version 2. Stand 2026-06-28. Versioniert über Git.
 > Geändert wird dieses Playbook nur über die Lernschleife (siehe retrospektive.md) und nur nach Freigabe des Nutzers.
 
 ## 1. Zweck
@@ -30,6 +30,10 @@ Jeder fachliche Beitrag der Experten ist an einer benennbaren Quelle aus `02 Res
 `/Users/d0e02236/agent-sandbox/runder-tisch/.venv/bin/python /Users/d0e02236/agent-sandbox/runder-tisch/suche.py "<frage>" 8`
 
 und die zurückgegebenen Abschnitte werden als Beleg genutzt. Die Quellnotiz wird im Beitrag genannt, damit der Nutzer sie im Vault wiedererkennt. Findet der Index nichts Passendes, sagt der Experte das offen, statt etwas zu erfinden. Der Moderator darf den Index zusätzlich nutzen, um Facetten zu finden, die der Korpus hergibt, aber noch niemand am Tisch angesprochen hat.
+
+Manche Unterscheidungen sind im Korpus belegt und dürfen am Tisch nicht eingeebnet werden. Der Tisch führt dazu eine kleine Liste, die über die Lernschleife wächst.
+
+- Regel und Prinzip nach Wohland. Eine Regel ist eine wissensbasierte Regelkette für berechenbare, steuerbare Lagen, und sie zerbricht an der ersten Überraschung. Ein Prinzip gilt für lebendige, komplexe Systeme, die sich nicht steuern lassen, und es setzt nur eine Prämisse, in der die Beteiligten ihr Verhalten selbst finden. In Luhmanns Sprache ist ein Prinzip damit eine Entscheidungsprämisse. Beleg ist die Buchnotiz „Vom Wissen zum Können" von Gerhard Wohland und Mitautoren, gestützt durch „Strategie und lokale Rationalitäten". Das Wort „statt" in „Prinzipien statt Regeln" meint eine Verschiebung der Dominanz bei hoher Dynamik und keinen Ersatz, denn es braucht weiterhin beides. Als Prüfstein dient eine einzige Frage. Schreibt ein Kandidat das richtige Verhalten schon im Voraus fest, dann ist er eine Regel. Setzt er nur eine Prämisse, in der die Teams ihr Verhalten selbst finden, dann ist er ein Prinzip.
 
 ## 5. Phase 1, Problemraum
 
