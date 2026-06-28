@@ -1,7 +1,7 @@
 # REASONS Canvas — Runder Tisch zur gemeinsamen Problemlösung
 
 > Erstellt: 2026-06-27
-> Status: In Umsetzung — Stufe A und Stufe B gebaut, Erdung der Experten an suche.py verdrahtet (Operation 10), Trockenlauf mit Vektor (Operation 11) offen
+> Status: Umgesetzt. Stufe A und Stufe B sind gebaut und am 2026-06-28 in einem echten Lauf geprüft. Offen bleiben die Punkte im Lernbacklog und die spätere Beförderung des Playbooks zum Skill `/runder-tisch`.
 
 ---
 
