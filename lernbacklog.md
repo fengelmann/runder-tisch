@@ -7,6 +7,7 @@
 - Befund, Trockenlauf 2026-06-27. Die Experten haben je eine Frage angehängt, statt zirkulär zu fragen. Es fehlten die fünf Fragetypen Kontext, Unterscheidung, Perspektivwechsel, Zeit und Verschlimmerung, und ein echtes Aufspannen des Problemraums.
 - Betroffenes Szenario. Problemraum vor Lösungsraum.
 - Erwartete Verbesserung. Phase 1 im Playbook so schärfen, dass die Experten mehrere Runden zirkulär fragen und der Moderator die Schwelle erst nach spürbarer Durchdringung erwägt.
+- Erledigt 2026-06-28. Playbook auf Version 3. Zirkuläres Fragen nach Simon ist als eigene Arbeitsstrecke über mehrere Runden in Abschnitt 5 verankert, mit den Fragetypen aus der Quelle und der Viererleiter bezeichnen, beschreiben, erklären, bewerten. Die Besetzung ist auf so viele Perspektiven wie nötig geöffnet, begründet über die Beobachtung zweiter Ordnung und den blinden Fleck. Die Schwelle ist an die vier Dimensionen Perspektiven, Beobachtung, Zeit und System gebunden, mit dem Kriterium, dass eine weitere Perspektive keine neue Differenz mehr erzeugt.
 
 ## 2. Sprachstil der Beiträge
 
