@@ -25,7 +25,11 @@ Claude spricht Moderator, Experte A und Experte B als getrennte, benannte Beitr�
 
 ## 4. Erdung
 
-Jeder fachliche Beitrag der Experten ist an einer benennbaren Quelle aus `02 Ressourcen` geerdet. In Stufe A 체ber direktes Lesen der einschl채gigen Notizen, in Stufe B 체ber die semantische Suche. Die Quelle wird im Beitrag genannt, damit der Nutzer sie wiedererkennt.
+Jeder fachliche Beitrag der Experten ist an einer benennbaren Quelle aus `02 Ressourcen` geerdet, 체ber den lokalen semantischen Index. Soll ein Experte etwas belegen, wird die passende Frage gegen den Index gestellt mit
+
+`/Users/d0e02236/agent-sandbox/runder-tisch/.venv/bin/python /Users/d0e02236/agent-sandbox/runder-tisch/suche.py "<frage>" 8`
+
+und die zur체ckgegebenen Abschnitte werden als Beleg genutzt. Die Quellnotiz wird im Beitrag genannt, damit der Nutzer sie im Vault wiedererkennt. Findet der Index nichts Passendes, sagt der Experte das offen, statt etwas zu erfinden. Der Moderator darf den Index zus채tzlich nutzen, um Facetten zu finden, die der Korpus hergibt, aber noch niemand am Tisch angesprochen hat.
 
 ## 5. Phase 1, Problemraum
 

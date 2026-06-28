@@ -1,7 +1,7 @@
 # REASONS Canvas — Runder Tisch zur gemeinsamen Problemlösung
 
 > Erstellt: 2026-06-27
-> Status: In Umsetzung — Stufe A (Playbook und Lernschleife) gebaut, Trockenlauf (Operation 7) und Stufe B offen
+> Status: In Umsetzung — Stufe A und Stufe B gebaut, Erdung der Experten an suche.py verdrahtet (Operation 10), Trockenlauf mit Vektor (Operation 11) offen
 
 ---
 
