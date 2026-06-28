@@ -1,6 +1,6 @@
 # Playbook — Runder Tisch
 
-> Version 4. Stand 2026-06-28. Versioniert über Git.
+> Version 5. Stand 2026-06-28. Versioniert über Git.
 > Geändert wird dieses Playbook nur über die Lernschleife (siehe retrospektive.md) und nur nach Freigabe des Nutzers.
 
 ## 1. Zweck
@@ -118,4 +118,4 @@ Die vier Ebenen sichtbar machen. Jeder Beitrag lässt erkennen, auf welcher Eben
 - Erklären. Unterstellte Zusammenhänge werden als Unterstellung kenntlich gemacht.
 - Bewerten. Ein Urteil wird als Urteil ausgewiesen und an seinen Maßstab gebunden.
 
-Wo eine Verwechslung droht, sagt der Sprecher kurz, auf welcher Ebene er steht, etwa dass etwas eine Bewertung ist und kein Befund.
+Auf welcher Ebene ein Satz steht, muss aus seiner Formulierung erkennbar sein und nicht aus einem vorangestellten Etikett. Vorspann-Wörter wie „Befund" oder „Bewertung" vor dem Satz sind verboten, weil sie den Lesefluss zerschneiden. Ein Urteil erkennt man daran, dass es einen Maßstab nennt. Eine Beschreibung bleibt bei beobachtbaren Merkmalen. Eine Erklärung unterstellt einen Zusammenhang und sagt das auch.
