@@ -29,3 +29,31 @@
 - Erwartete Verbesserung. Die Brille trennt nach Wohland deterministisch-steuerbar (Regeln) von nicht-deterministisch (Prinzipien). Prüfen, ob eine eigene Wohland-Notiz angelegt oder die Makroarchitektur-Notizen mitindiziert werden sollen.
 - Stand 2026-06-28. Der Nutzer hat das Wohland-Buch und eigene Wohland-Notizen einsortiert, und der Index ist aktualisiert. Die Quelle ist jetzt direkt auffindbar.
 - Erledigt 2026-06-28. Die Unterscheidung ist im Playbook in Abschnitt 4 als geerdete Unterscheidung verankert, mit Beleg auf „Vom Wissen zum Können", dem Prüfstein und dem Hinweis, dass „statt" eine Dominanzverschiebung und keinen Ersatz meint. In der Makroarchitektur-Notiz im Vault ist die Unterscheidung ebenfalls eingearbeitet.
+
+## 5. Drei Grundfragen vor dem ersten Beitrag
+
+- Befund, Lauf 2026-06-28. Die Runde driftete, weil Ziel, Problem und Erfolgskriterium nicht am Anfang standen.
+- Betroffenes Szenario. Problemraum vor Lösungsraum.
+- Vorschlag, nicht angewandt. Jede Session beginnt damit, Ziel, Problem und Erfolgskriterium in einfacher Sprache zu fixieren und vom Nutzer bestätigen zu lassen, bevor ein Experte spricht.
+- Erwartete Wirkung. Der Diskurs bleibt an einer konkreten Frage verankert und driftet nicht in Theorie.
+
+## 6. Expertenbeitrag ist Gegenposition oder konkrete Option
+
+- Befund, Lauf 2026-06-28. Die Experten haben gespiegelt und Theorie ausgebreitet. Die Anti-Spiegel-Regel aus Version 6 hat nicht gegriffen.
+- Betroffene Szenarien. Geerdeter Expertenbeitrag, Kritik freimütig und wohlwollend.
+- Vorschlag, nicht angewandt. Jeder Expertenbeitrag liefert entweder einen begründeten Widerspruch oder eine konkrete, umsetzbare Option, höchstens ein kurzer Absatz. Reine Wiederholung oder ein Theorie-Rundgang wird gestrichen. Fehlt ein Begriff im Index, wird das im selben Satz gesagt und als ungesichert markiert.
+- Erwartete Wirkung. Echte Dialektik, weniger Volumen, der Nutzer kommt voran.
+
+## 7. Das Format ist dem Nutzen untergeordnet
+
+- Befund, Lauf 2026-06-28. Das mehrstimmige Format erzeugte Volumen statt Nutzen.
+- Betroffenes Szenario. Anschlussfähigkeit vor Abschluss.
+- Vorschlag, nicht angewandt. Bewegen zwei Runden den Nutzer nicht, wird das mehrstimmige Format fallengelassen und einfach und konkret weitergearbeitet.
+- Erwartete Wirkung. Schluss mit Volumen statt Wirkung.
+
+## 8. Kein Playbook-Umbau mitten in der Session
+
+- Befund, Lauf 2026-06-28. Ich habe das Playbook von Version 2 auf 6 mitten in der Arbeit geändert, teils als Ersatzhandlung.
+- Betroffene Szenarien. Verbesserung vorgeschlagen nicht angewandt, Verbesserung gemessen nicht behauptet.
+- Vorschlag, nicht angewandt. Erkenntnisse während der Session nur sammeln. Änderungen am Ende vorschlagen, nach Freigabe in der nächsten Session anwenden und dort messen.
+- Erwartete Wirkung. Kein Aktionismus am Werkzeug und eine saubere Messung der Wirkung.
