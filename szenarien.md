@@ -56,3 +56,25 @@
       Wenn die nächste Session läuft
       Dann prüft die Retrospektive, ob sich die betroffenen Akzeptanzkriterien verbessert haben
       Und rollt die Änderung zurück, wenn sie verschlechtert hat
+
+    Szenario: Ordner-Wahl ist Pflicht
+      Gegeben ein Start von /runder-tisch, /frag oder /index-aktualisieren
+      Wenn der Korpus-Ordner nicht eindeutig benannt ist
+      Dann wird kein Standard-Ordner angenommen
+      Und der Nutzer wird nach dem Ordner gefragt, bevor irgendetwas läuft
+
+    Szenario: Runder Tisch auf beliebigem Ordner
+      Gegeben ein Ordner mit Markdown-Notizen im Dateisystem
+      Wenn ich /runder-tisch mit diesem Ordner starte
+      Dann baut oder aktualisiert der Skill den Index für genau diesen Ordner
+      Und die Erdung der Experten nutzt nur Quellen aus diesem Ordner
+
+    Szenario: Bestehender Index bleibt erhalten
+      Gegeben der vorhandene Index über den Arbeits-Vault
+      Wenn ein Index für einen zweiten Ordner gebaut wird
+      Dann bleibt der erste Index unverändert nutzbar
+
+    Szenario: Vorführung startet ohne Wartezeit
+      Gegeben der vorab gebaute Index über den Test-Vault
+      Wenn die Vorführung beginnt
+      Dann liefert die erste Suchanfrage sofort Treffer
