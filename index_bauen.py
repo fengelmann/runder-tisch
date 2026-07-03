@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Baut und aktualisiert den lokalen Vektorindex über den Ressourcen-Ordner.
+"""Baut und aktualisiert den lokalen Vektorindex über einen Korpus-Ordner.
 
-Liest alle Markdown-Notizen, zerlegt sie in Abschnitte und bettet sie mit einem
-lokalen Modell ein. Index und Metadaten liegen flach im Ordner index/. Kein
-externer Dienst, keine Datenbank. Der Korpus verlässt den Rechner nicht.
+Aufruf: python index_bauen.py "/Pfad/zum/Korpus"
+
+Der Korpus-Ordner ist Pflicht, damit immer bewusst gewählt wird, worauf
+gearbeitet wird. Liest alle Markdown-Notizen, zerlegt sie in Abschnitte und
+bettet sie mit einem lokalen Modell ein. Jeder Korpus bekommt seinen eigenen
+Unterordner unter index/, abgeleitet aus dem Korpus-Pfad. Kein externer
+Dienst, keine Datenbank. Der Korpus verlässt den Rechner nicht.
 
 Die Einbettungen werden inhaltsbasiert zwischengespeichert. Jeder Abschnitt
 bekommt einen Fingerabdruck über seinen Text. Bei einem erneuten Lauf werden
@@ -16,23 +20,26 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 
 import numpy as np
 from fastembed import TextEmbedding
 
 # --- Konfiguration ---
-KORPUS = Path("/Users/d0e02236/Documents/Notes/Work/02 Ressourcen")
 AUSSCHLUSS = {"PDS", "99_Personen"}             # Ordner, die nicht indiziert werden
 MODELL = "jinaai/jina-embeddings-v2-base-de"     # deutsch und englisch, kein Präfix nötig, ONNX
-INDEX_DIR = Path(__file__).resolve().parent / "index"
+INDEX_BASIS = Path(__file__).resolve().parent / "index"
 MAX_ZEICHEN = 1200                               # Obergrenze je Abschnitt
 
-VEKTOREN = INDEX_DIR / "vektoren.npy"
-CHUNKS = INDEX_DIR / "chunks.json"
-META = INDEX_DIR / "meta.json"
-CACHE_HASHES = INDEX_DIR / "cache_hashes.json"
-CACHE_VEKTOREN = INDEX_DIR / "cache_vektoren.npy"
+
+def index_verzeichnis(korpus: Path) -> Path:
+    """Eigener Index-Unterordner je Korpus, lesbar benannt und über einen
+    Fingerabdruck des vollen Pfads eindeutig, auch bei gleichem Ordnernamen."""
+    korpus = korpus.resolve()
+    kuerzel = hashlib.sha256(str(korpus).encode("utf-8")).hexdigest()[:8]
+    name = re.sub(r"[^A-Za-z0-9]+", "-", korpus.name).strip("-").lower() or "korpus"
+    return INDEX_BASIS / f"{name}-{kuerzel}"
 
 
 def lade_text(pfad: Path) -> tuple[str, str]:
@@ -73,11 +80,11 @@ def zerlege(titel: str, text: str) -> list[tuple[str, str]]:
     return abschnitte
 
 
-def baue_chunks() -> list[dict]:
+def baue_chunks(korpus: Path) -> list[dict]:
     """Sammelt alle Abschnitte in deterministischer Reihenfolge."""
     dateien = sorted(
-        (p for p in KORPUS.rglob("*.md")
-         if not (set(p.relative_to(KORPUS).parts) & AUSSCHLUSS)),
+        (p for p in korpus.rglob("*.md")
+         if not (set(p.relative_to(korpus).parts) & AUSSCHLUSS)),
         key=lambda p: str(p),
     )
     chunks: list[dict] = []
@@ -85,7 +92,7 @@ def baue_chunks() -> list[dict]:
         titel, text = lade_text(pfad)
         for name, stueck in zerlege(titel, text):
             chunks.append({
-                "quelle": str(pfad.relative_to(KORPUS)),
+                "quelle": str(pfad.relative_to(korpus)),
                 "titel": titel,
                 "abschnitt": name,
                 "text": stueck,
@@ -98,38 +105,38 @@ def fingerabdruck(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-def lade_cache() -> dict:
+def lade_cache(index_dir: Path) -> dict:
     """Lädt den inhaltsbasierten Zwischenspeicher, Fingerabdruck zu Vektor."""
     cache: dict = {}
-    if CACHE_HASHES.exists() and CACHE_VEKTOREN.exists():
-        hashes = json.loads(CACHE_HASHES.read_text(encoding="utf-8"))
-        vek = np.load(CACHE_VEKTOREN)
+    cache_hashes = index_dir / "cache_hashes.json"
+    cache_vektoren = index_dir / "cache_vektoren.npy"
+    if cache_hashes.exists() and cache_vektoren.exists():
+        hashes = json.loads(cache_hashes.read_text(encoding="utf-8"))
+        vek = np.load(cache_vektoren)
         for h, v in zip(hashes, vek):
             cache[h] = v
     return cache
 
 
-def bootstrap_aus_altem_index(cache: dict) -> None:
-    """Erster Lauf nach der Umstellung. Füllt den Zwischenspeicher aus dem
-    vorhandenen Index, damit die alten Einbettungen nicht neu gerechnet werden."""
-    if cache or not (CHUNKS.exists() and VEKTOREN.exists()):
-        return
-    chunks = json.loads(CHUNKS.read_text(encoding="utf-8"))
-    vek = np.load(VEKTOREN)
-    if len(chunks) == len(vek):
-        for c, v in zip(chunks, vek):
-            cache[fingerabdruck(c["text"])] = v
-        print(f"Zwischenspeicher aus vorhandenem Index übernommen, {len(cache)} Einbettungen", flush=True)
-
-
 def main() -> None:
-    INDEX_DIR.mkdir(exist_ok=True)
-    chunks = baue_chunks()
+    if len(sys.argv) < 2 or not sys.argv[1].strip():
+        print('Aufruf: python index_bauen.py "/Pfad/zum/Korpus"')
+        print("Der Korpus-Ordner ist Pflicht, damit bewusst gewählt wird, worauf gearbeitet wird.")
+        sys.exit(1)
+    korpus = Path(sys.argv[1]).expanduser().resolve()
+    if not korpus.is_dir():
+        print(f"Korpus-Ordner nicht gefunden: {korpus}")
+        sys.exit(1)
+
+    index_dir = index_verzeichnis(korpus)
+    index_dir.mkdir(parents=True, exist_ok=True)
+    print(f"Korpus: {korpus}", flush=True)
+
+    chunks = baue_chunks(korpus)
     gesamt = len(chunks)
     print(f"{gesamt} Abschnitte im Korpus", flush=True)
 
-    cache = lade_cache()
-    bootstrap_aus_altem_index(cache)
+    cache = lade_cache(index_dir)
 
     fehlend = [i for i, c in enumerate(chunks) if fingerabdruck(c["text"]) not in cache]
     print(f"{len(fehlend)} neue oder geänderte Abschnitte, {gesamt - len(fehlend)} wiederverwendet", flush=True)
@@ -151,11 +158,16 @@ def main() -> None:
     vektoren = np.array([cache[fingerabdruck(c["text"])] for c in chunks], dtype=np.float32)
     vektoren = np.nan_to_num(vektoren, nan=0.0, posinf=0.0, neginf=0.0).astype(np.float32)
 
-    np.save(VEKTOREN, vektoren)
-    CHUNKS.write_text(json.dumps(chunks, ensure_ascii=False), encoding="utf-8")
-    META.write_text(
+    np.save(index_dir / "vektoren.npy", vektoren)
+    (index_dir / "chunks.json").write_text(json.dumps(chunks, ensure_ascii=False), encoding="utf-8")
+    (index_dir / "meta.json").write_text(
         json.dumps(
-            {"modell": MODELL, "dim": int(vektoren.shape[1]), "anzahl": int(vektoren.shape[0])},
+            {
+                "modell": MODELL,
+                "dim": int(vektoren.shape[1]),
+                "anzahl": int(vektoren.shape[0]),
+                "korpus": str(korpus),
+            },
             ensure_ascii=False,
         ),
         encoding="utf-8",
@@ -172,10 +184,10 @@ def main() -> None:
         gesehen.add(h)
         akt_hashes.append(h)
         akt_vek.append(cache[h])
-    CACHE_HASHES.write_text(json.dumps(akt_hashes), encoding="utf-8")
-    np.save(CACHE_VEKTOREN, np.array(akt_vek, dtype=np.float32))
+    (index_dir / "cache_hashes.json").write_text(json.dumps(akt_hashes), encoding="utf-8")
+    np.save(index_dir / "cache_vektoren.npy", np.array(akt_vek, dtype=np.float32))
 
-    print(f"Index aktualisiert: {vektoren.shape[0]} Abschnitte, gespeichert in {INDEX_DIR}", flush=True)
+    print(f"Index aktualisiert: {vektoren.shape[0]} Abschnitte, gespeichert in {index_dir}", flush=True)
 
 
 if __name__ == "__main__":

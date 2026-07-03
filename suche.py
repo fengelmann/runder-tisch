@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Durchsucht den lokalen Vektorindex semantisch.
+"""Durchsucht den lokalen Vektorindex eines Korpus semantisch.
 
-Aufruf: python suche.py "deine Frage" [anzahl]
-Gibt die ähnlichsten Abschnitte mit Quellnotiz aus. Das ist die Such-Schnittstelle,
-die der runde Tisch zur Erdung aufruft.
+Aufruf: python suche.py "/Pfad/zum/Korpus" "deine Frage" [anzahl]
+Der Korpus-Ordner ist Pflicht, damit immer bewusst gewählt wird, worauf
+gearbeitet wird. Gibt die ähnlichsten Abschnitte mit Quellnotiz aus. Das ist
+die Such-Schnittstelle, die der runde Tisch zur Erdung aufruft.
 """
 from __future__ import annotations
 
@@ -14,19 +15,26 @@ from pathlib import Path
 import numpy as np
 from fastembed import TextEmbedding
 
-INDEX_DIR = Path(__file__).resolve().parent / "index"
+from index_bauen import index_verzeichnis
 
 
 def main() -> None:
-    if len(sys.argv) < 2:
-        print('Aufruf: python suche.py "deine Frage" [anzahl]')
+    if len(sys.argv) < 3:
+        print('Aufruf: python suche.py "/Pfad/zum/Korpus" "deine Frage" [anzahl]')
         sys.exit(1)
-    frage = sys.argv[1]
-    k = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+    korpus = Path(sys.argv[1]).expanduser().resolve()
+    frage = sys.argv[2]
+    k = int(sys.argv[3]) if len(sys.argv) > 3 else 5
 
-    meta = json.loads((INDEX_DIR / "meta.json").read_text(encoding="utf-8"))
-    chunks = json.loads((INDEX_DIR / "chunks.json").read_text(encoding="utf-8"))
-    vektoren = np.nan_to_num(np.load(INDEX_DIR / "vektoren.npy")).astype(np.float32)
+    index_dir = index_verzeichnis(korpus)
+    if not (index_dir / "meta.json").exists():
+        print(f"Kein Index für diesen Korpus vorhanden: {korpus}")
+        print('Erst bauen mit: python index_bauen.py "/Pfad/zum/Korpus"')
+        sys.exit(1)
+
+    meta = json.loads((index_dir / "meta.json").read_text(encoding="utf-8"))
+    chunks = json.loads((index_dir / "chunks.json").read_text(encoding="utf-8"))
+    vektoren = np.nan_to_num(np.load(index_dir / "vektoren.npy")).astype(np.float32)
 
     modell = TextEmbedding(model_name=meta["modell"])
     frage_vektor = np.array(list(modell.embed([frage]))[0], dtype=np.float32)
