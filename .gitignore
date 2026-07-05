@@ -6,3 +6,6 @@ chroma/
 *.sqlite3
 .venv/
 __pycache__/
+
+# Lokale Session-Notizen — Arbeitsstand, gehoert nicht nach remote
+sessions/
