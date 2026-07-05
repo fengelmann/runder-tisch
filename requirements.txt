@@ -1,0 +1,5 @@
+# Abhängigkeiten des runden Tisches.
+# Bewusst nur die eine direkte Abhängigkeit festgehalten; alles Weitere
+# (numpy, onnxruntime, tokenizers ...) zieht fastembed selbst nach.
+# Neu bauen mit: ./einrichten.sh
+fastembed==0.7.4
