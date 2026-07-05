@@ -31,7 +31,7 @@ Claude spricht Moderator und Experten als getrennte, benannte Beiträge. Jeder B
 
 Jeder fachliche Beitrag der Experten ist an einer benennbaren Quelle aus dem gewählten Korpus-Ordner geerdet, über den lokalen semantischen Index. Der Korpus-Ordner wird zu Beginn jeder Session bewusst gewählt und vom Nutzer bestätigt, es gibt keinen Standard-Ordner. Soll ein Experte etwas belegen, wird die passende Frage gegen den Index gestellt mit
 
-`/Users/d0e02236/agent-sandbox/runder-tisch/.venv/bin/python /Users/d0e02236/agent-sandbox/runder-tisch/suche.py "<korpus-ordner>" "<frage>" 8`
+`~/agent-sandbox/runder-tisch/.venv/bin/python ~/agent-sandbox/runder-tisch/suche.py "<korpus-ordner>" "<frage>" 8`
 
 und die zurückgegebenen Abschnitte werden als Beleg genutzt. Die Quellnotiz wird im Beitrag genannt, damit der Nutzer sie im Vault wiedererkennt. Findet der Index nichts Passendes, sagt der Experte das offen, statt etwas zu erfinden. Der Moderator darf den Index zusätzlich nutzen, um Facetten zu finden, die der Korpus hergibt, aber noch niemand am Tisch angesprochen hat.
 
